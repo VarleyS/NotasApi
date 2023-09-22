@@ -47,7 +47,7 @@ namespace NotaAlunoApi.Controllers
             return NotFound();
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public IActionResult AtualizaUsuario(int id, [FromBody] UpdateUsuarioDto usuarioDto)
         {
             var usuario = _context.Usuarios.FirstOrDefault(usuario =>usuario.Id == id);
@@ -60,7 +60,7 @@ namespace NotaAlunoApi.Controllers
             return NoContent();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult RemoveUsuario(int id) 
         {
             var usuario = _context.Usuarios.FirstOrDefault(usuario => usuario.Id == id);

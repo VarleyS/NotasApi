@@ -4,7 +4,6 @@ namespace NotaAlunoApi.Model
 {
     public class Permissao
     {
-
         public Permissao(string nomeVisual, string nomePermissao)
         {
             Validation(nomeVisual, nomePermissao);
