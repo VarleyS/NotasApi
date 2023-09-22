@@ -11,5 +11,7 @@ namespace NotaAlunoApi.Data
         public DbSet<Aluno> Alunos { get; set; }
         public DbSet<Nota> Notas { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Permissao> Permissaos { get; set;}
+        public DbSet<UsuarioPermissao> UsuarioPermissaos { get; set; }
     }
 }

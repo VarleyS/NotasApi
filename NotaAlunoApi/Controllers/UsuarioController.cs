@@ -36,7 +36,7 @@ namespace NotaAlunoApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult RecuperaUsuarioPorId(Guid id)
+        public IActionResult RecuperaUsuarioPorId(int id)
         {
             var usuario = _context.Usuarios.FirstOrDefault(usuario => usuario.Id == id);
             if(usuario != null)
@@ -48,7 +48,7 @@ namespace NotaAlunoApi.Controllers
         }
 
         [HttpPut]
-        public IActionResult AtualizaUsuario(Guid id, [FromBody] UpdateUsuarioDto usuarioDto)
+        public IActionResult AtualizaUsuario(int id, [FromBody] UpdateUsuarioDto usuarioDto)
         {
             var usuario = _context.Usuarios.FirstOrDefault(usuario =>usuario.Id == id);
             if(usuario == null)
@@ -61,7 +61,7 @@ namespace NotaAlunoApi.Controllers
         }
 
         [HttpDelete]
-        public IActionResult RemoveUsuario(Guid id) 
+        public IActionResult RemoveUsuario(int id) 
         {
             var usuario = _context.Usuarios.FirstOrDefault(usuario => usuario.Id == id);
             if(usuario == null)

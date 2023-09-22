@@ -9,7 +9,7 @@ namespace NotaAlunoApi.Profiles
         public AlunoProfile()
         {
             CreateMap<CreateAlunoDto, Aluno>();
-            CreateMap<Aluno, ReadAlunoDto>().ForMember(alunoDto => alunoDto.ReadNotaDto, opt => opt.MapFrom(aluno => aluno.Nota)); ;
+            CreateMap<Aluno, ReadAlunoDto>().ForMember(alunoDto => alunoDto.ReadNotaDto, opt => opt.MapFrom(aluno => aluno.Nota));
             CreateMap<UpdateAlunoDto, Aluno>();
         }
     }
