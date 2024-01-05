@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotaAlunoApi", "NotaAlunoApi\NotaAlunoApi.csproj", "{0E8B7AB8-BB2D-46B2-93FB-9AE3FE3842CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotaAlunoApi", "NotaAlunoApi\NotaAlunoApi.csproj", "{0E8B7AB8-BB2D-46B2-93FB-9AE3FE3842CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
