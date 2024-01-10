@@ -12,6 +12,12 @@ builder.Services.AddDbContext<AlunoContext>(opt => opt.UseLazyLoadingProxies().U
 builder.Services.
     AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+#region [Cors]
+
+builder.Services.AddCors();
+
+#endregion
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -27,6 +33,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(c => { 
+    c.AllowAnyHeader();
+    c.AllowAnyMethod();
+    c.AllowAnyOrigin();
+});
 
 app.UseHttpsRedirection();
 
