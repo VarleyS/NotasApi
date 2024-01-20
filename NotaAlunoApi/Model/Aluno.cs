@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using NotaAlunoApi.Utils;
+using System.Numerics;
 
 namespace NotaAlunoApi.Model
 {
@@ -28,9 +29,9 @@ namespace NotaAlunoApi.Model
             {
                 throw new ArgumentNullException("dataNascimento");
             }
-            if (cpf == null)
+            if (cpf != null)
             {
-                throw new ArgumentNullException("cpf");
+                Utils.ValidaCpf.IsValidaCpf(cpf);
             }
             if (rg == null)
             {
