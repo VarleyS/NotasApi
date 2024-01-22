@@ -5,6 +5,8 @@ namespace NotaAlunoApi.Model
 {
     public class Aluno
     {
+        public Aluno() { }
+
         public Aluno(string name, DateTime dataNascimento, string cpf, string rg, string sexo, string telefone)
         {
             Validation(name, dataNascimento, cpf, rg, sexo, telefone);

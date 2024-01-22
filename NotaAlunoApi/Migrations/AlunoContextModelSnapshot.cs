@@ -53,7 +53,7 @@ namespace NotaAlunoApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Alunos");
+                    b.ToTable("Alunos", (string)null);
                 });
 
             modelBuilder.Entity("NotaAlunoApi.Model.Nota", b =>
@@ -88,7 +88,7 @@ namespace NotaAlunoApi.Migrations
                     b.HasIndex("AlunoId")
                         .IsUnique();
 
-                    b.ToTable("Notas");
+                    b.ToTable("Notas", (string)null);
                 });
 
             modelBuilder.Entity("NotaAlunoApi.Model.Permissao", b =>
@@ -107,7 +107,7 @@ namespace NotaAlunoApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Permissaos");
+                    b.ToTable("Permissaos", (string)null);
                 });
 
             modelBuilder.Entity("NotaAlunoApi.Model.Usuario", b =>
@@ -130,7 +130,7 @@ namespace NotaAlunoApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Usuarios");
+                    b.ToTable("Usuarios", (string)null);
                 });
 
             modelBuilder.Entity("NotaAlunoApi.Model.UsuarioPermissao", b =>
@@ -151,7 +151,7 @@ namespace NotaAlunoApi.Migrations
 
                     b.HasIndex("UsuarioId");
 
-                    b.ToTable("UsuarioPermissaos");
+                    b.ToTable("UsuarioPermissaos", (string)null);
                 });
 
             modelBuilder.Entity("NotaAlunoApi.Model.Nota", b =>
