@@ -7,6 +7,7 @@ namespace NotaAlunoApi.Model
     {
         public Aluno() { }
 
+
         public Aluno(string name, DateTime dataNascimento, string cpf, string rg, string sexo, string telefone)
         {
             Validation(name, dataNascimento, cpf, rg, sexo, telefone);
@@ -27,9 +28,9 @@ namespace NotaAlunoApi.Model
             {
                 throw new ArgumentNullException("name");
             }
-            if (dataNascimento == null)
+            if (dataNascimento != null)
             {
-                throw new ArgumentNullException("dataNascimento");
+                ValidaDataAni.ValidaDataAniversario(dataNascimento);
             }
             if (cpf != null)
             {
