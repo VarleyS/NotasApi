@@ -8,21 +8,21 @@ namespace NotaAlunoApi.Model
         public Aluno() { }
 
 
-        public Aluno(string name, DateTime dataNascimento, string cpf, string rg, string sexo, string telefone)
+        public Aluno(string name, string dataNascimento, string cpf, string rg, string sexo, string telefone)
         {
             Validation(name, dataNascimento, cpf, rg, sexo, telefone);
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public DateTime DataNascimento { get; set; }
+        public string DataNascimento { get; set; }
         public string CPF { get; set; }
         public string RG { get; set; }
         public string Sexo { get; set; }
         public string Telefone { get; set; }
         public virtual Nota Nota { get; set; }
 
-        private void Validation(string name, DateTime dataNascimento, string cpf, string rg, string sexo, string telefone)
+        private void Validation(string name, string dataNascimento, string cpf, string rg, string sexo, string telefone)
         {
             if (name == null)
             {
@@ -30,11 +30,19 @@ namespace NotaAlunoApi.Model
             }
             if (dataNascimento != null)
             {
-                ValidaDataAni.ValidaDataAniversario(dataNascimento);
+                var verificador = ValidaDataAni.ValidaData(dataNascimento);
+                if (verificador == false)
+                {
+                    throw new InvalidOperationException("Data inválida!");
+                }
             }
             if (cpf != null)
             {
-                Utils.ValidaCpf.IsValidaCpf(cpf);
+                var verificador = ValidaCpf.IsValidaCpf(cpf);
+                if (verificador == false)
+                {
+                    throw new InvalidOperationException("Cpf inválido!");
+                }
             }
             if (rg == null)
             {
@@ -44,9 +52,13 @@ namespace NotaAlunoApi.Model
             {
                 throw new ArgumentNullException("sexo");
             }
-            if (telefone == null)
+            if (telefone != null)
             {
-                throw new ArgumentNullException("telefone");
+                var validador = ValidaTelefone.ValidaTel(telefone);
+                if (validador == false)
+                {
+                    throw new ArgumentNullException("telefone");
+                }
             }
 
             Name = name;

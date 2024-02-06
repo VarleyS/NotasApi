@@ -5,19 +5,15 @@ namespace NotaAlunoApi.Utils
 {
     public class ValidaDataAni
     {
-
-        public static void ValidaDataAniversario(DateTime data)
+        public static bool ValidaData(string data)
         {
-            var teste = data.ToString();
-
-            var match = Regex.Match(teste.ToString(), @"^([1-9]|([012][0-9])|(3[01]))\/([0]{0,1}[1-9]|1[012])\/\d\d\d\d [012]{0,1}[0-9]:[0-6][0-9]$g");
+            DateTime resultado = DateTime.MinValue;
             
-
-            if (match.Success)
+            if (DateTime.TryParse(data, out resultado))
             {
-                Console.WriteLine("Data Valida!");
+                return true;
             }
-
+            return false;
         }
     }
 }
