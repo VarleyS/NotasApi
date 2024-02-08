@@ -44,13 +44,17 @@ namespace NotaAlunoApi.Model
                     throw new InvalidOperationException("Cpf inválido!");
                 }
             }
-            if (rg == null)
+            if (rg != null)
             {
-                throw new ArgumentNullException("rg");
+                var verificador = ValidaRG.RG(rg);
+                if (verificador == false)
+                { 
+                    throw new InvalidOperationException("RG Inválido!"); 
+                }
             }
             if (sexo == null)
             {
-                throw new ArgumentNullException("sexo");
+                throw new ArgumentNullException("Campo sexo precisa ser informado!");
             }
             if (telefone != null)
             {
