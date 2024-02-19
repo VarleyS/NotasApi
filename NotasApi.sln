@@ -5,6 +5,8 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotaAlunoApi", "NotaAlunoApi\NotaAlunoApi.csproj", "{0E8B7AB8-BB2D-46B2-93FB-9AE3FE3842CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotaAlunoApi.Tests", "NotaAlunoApi.Tests\NotaAlunoApi.Tests.csproj", "{9A182E08-33C9-4F5F-A0F8-026278FC70D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0E8B7AB8-BB2D-46B2-93FB-9AE3FE3842CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E8B7AB8-BB2D-46B2-93FB-9AE3FE3842CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E8B7AB8-BB2D-46B2-93FB-9AE3FE3842CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A182E08-33C9-4F5F-A0F8-026278FC70D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A182E08-33C9-4F5F-A0F8-026278FC70D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A182E08-33C9-4F5F-A0F8-026278FC70D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A182E08-33C9-4F5F-A0F8-026278FC70D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
