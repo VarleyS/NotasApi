@@ -26,7 +26,7 @@ namespace NotaAlunoApi.Model
         {
             if (name == null)
             {
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException("Nome");
             }
             if (dataNascimento != null)
             {
