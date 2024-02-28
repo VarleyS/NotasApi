@@ -13,7 +13,7 @@ namespace NotaAlunoApi.Controllers
         private AlunoContext _context;
         private IMapper _mapper;
 
-        public AlunoController(AlunoContext context, IMapper mapper) 
+        public AlunoController(AlunoContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -23,9 +23,17 @@ namespace NotaAlunoApi.Controllers
         public IActionResult AdicionaAluno([FromBody] CreateAlunoDto alunoDto)
         {
             Aluno aluno = _mapper.Map<Aluno>(alunoDto);
-            _context.Alunos.Add(aluno);
-            _context.SaveChanges();
-            return CreatedAtAction(nameof(RecuperaAlunoPorId), new {Id = aluno.Id}, alunoDto);
+            var validaAluno = _context.Alunos.FirstOrDefault(aluno => aluno.CPF == alunoDto.CPF);
+            if (validaAluno == null)
+            {
+                _context.Alunos.Add(aluno);
+                _context.SaveChanges();
+            }
+            else
+            {
+                throw new Exception("CPF já existente");
+            }
+            return CreatedAtAction(nameof(RecuperaAlunoPorId), new { Id = aluno.Id }, alunoDto);
         }
 
         [HttpGet]
@@ -38,7 +46,7 @@ namespace NotaAlunoApi.Controllers
         public IActionResult RecuperaAlunoPorId(int id)
         {
             Aluno aluno = _context.Alunos.FirstOrDefault(aluno => aluno.Id == id);
-            if(aluno != null) 
+            if (aluno != null)
             {
                 ReadAlunoDto alunoDto = _mapper.Map<ReadAlunoDto>(aluno);
                 return Ok(alunoDto);
@@ -47,10 +55,10 @@ namespace NotaAlunoApi.Controllers
         }
 
         [HttpPut]
-        public IActionResult AtualizaAluno(int id, [FromBody] UpdateAlunoDto alunoDto) 
+        public IActionResult AtualizaAluno(int id, [FromBody] UpdateAlunoDto alunoDto)
         {
             Aluno aluno = _context.Alunos.FirstOrDefault(aluno => aluno.Id == id);
-            if(aluno == null) 
+            if (aluno == null)
             {
                 return NotFound();
             }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using NotaAlunoApi.Utils;
+using System.ComponentModel.DataAnnotations;
 
 namespace NotaAlunoApi.Model
 {
@@ -33,9 +34,13 @@ namespace NotaAlunoApi.Model
             {
                 throw new ArgumentNullException("name");
             }
-            if (email == null)
+            if (email != null)
             {
-                throw new ArgumentNullException("email");
+                var resultado = ValidaEmail.EmailValido(email);
+                if(resultado == false)
+                {
+                    throw new ArgumentNullException("E-mail inválido!");
+                }
             }
             if (password == null)
             {

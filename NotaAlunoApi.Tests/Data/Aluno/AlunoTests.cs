@@ -1,10 +1,13 @@
-﻿using NotaAlunoApi.Data.Dto;
+﻿using NotaAlunoApi.Data;
+using NotaAlunoApi.Data.Dto;
 using NotaAlunoApi.Model;
 
 namespace NotaAlunoApi.Tests.Data.Aluno
 {
     public class AlunoTests
     {
+        private AlunoContext _context;
+
         [Fact]
         public void Create_Aluno_Correto()
         {
@@ -199,6 +202,37 @@ namespace NotaAlunoApi.Tests.Data.Aluno
                 Assert.Equal("", aluno.Telefone);
             }
 
+        }
+
+        [Fact]
+        public void Valida_Cpf_Existente()
+        {
+            string cpf = "111.232.313-44";
+
+            var aluno = new Model.Aluno()
+            {
+                Id = 1,
+                Name = "Varley",
+                DataNascimento = "11/22/3333",
+                CPF = "111.222.333-44",
+                RG = "11.222.333",
+                Sexo = "Masculino",
+                Telefone = "(31)99878-7290"
+            };
+
+            if (aluno.CPF != cpf)
+            {
+                Assert.Equal("Varley", aluno.Name);
+                Assert.Equal("11/22/3333", aluno.DataNascimento);
+                Assert.Equal("111.222.333-44", aluno.CPF);
+                Assert.Equal("11.222.333", aluno.RG);
+                Assert.Equal("Masculino", aluno.Sexo);
+            }
+            else
+            {
+                throw new Exception(
+                    "CPF já existente");
+            }
         }
     }
 }
