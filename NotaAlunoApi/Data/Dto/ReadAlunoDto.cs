@@ -11,6 +11,7 @@ namespace NotaAlunoApi.Data.Dto
         public string RG { get; set; }
         public string Sexo { get; set; }
         public string Telefone { get; set; }
+        public string Responsavel { get; set; }
         public ReadNotaDto ReadNotaDto { get; set; }
     }
 }

@@ -6,7 +6,6 @@ namespace NotaAlunoApi.Tests.Data.Aluno
 {
     public class AlunoTests
     {
-        private AlunoContext _context;
 
         [Fact]
         public void Create_Aluno_Correto()
@@ -211,7 +210,6 @@ namespace NotaAlunoApi.Tests.Data.Aluno
 
             var aluno = new Model.Aluno()
             {
-                Id = 1,
                 Name = "Varley",
                 DataNascimento = "11/22/3333",
                 CPF = "111.222.333-44",
